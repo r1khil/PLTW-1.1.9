@@ -2,12 +2,11 @@ import turtle as trtl
 painter = trtl.Turtle()
 
 def drawpetal():
-
+  print("Starting petal")
   #starts filling
   painter.begin_fill()
 
   #turn the painter to face north
-  painter.setheading(90)
 
   #traces petal
   painter.left(30)
@@ -27,8 +26,8 @@ def drawpetal():
 
   painter.end_fill()
   
-  painter.left(30)
   
+painter.setheading(90)
 drawpetal()
 
 wn = trtl.Screen()
