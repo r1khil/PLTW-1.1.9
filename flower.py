@@ -88,13 +88,29 @@ painter.goto(0,100)
 painter.setheading(90)
 painter.pendown()
 
+
+
+#ask user for inputs
+
+
+number_of_flowers = int(input("How many flowers would you like?"))
+
+
+
+
 #execution
 
-
-draw_petals()
-yellow_hexagon()
-black_circle()
-
+if number_of_flowers == 1:
+  draw_petals()
+  yellow_hexagon()
+  black_circle()
+elif number_of_flowers <= 0:
+  print("No flowers drawn.")
+elif number_of_flowers >= 1:
+  for total_flowers in range(number_of_flowers):
+    draw_petals()
+    yellow_hexagon()
+    black_circle()
 
 
 
