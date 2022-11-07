@@ -63,7 +63,7 @@ def black_circle():
   painter.pencolor("black")
   painter.fillcolor("black")
   painter.penup()
-  painter.goto(50,-25)
+  painter.goto(50 + starting_x,-25)
 
 
   #black circle
@@ -75,42 +75,61 @@ def black_circle():
 
 
 #sets color blue
-painter.pencolor("blue")
-painter.fillcolor("blue")
+def painter_color_is_blue():
+  painter.pencolor("blue")
+  painter.fillcolor("blue")
 
 # sets up the painter
-painter.penup()
-painter.goto(0,100)
 
+def painter_set_up():
+  painter.showturtle()
+  painter.penup()
+  painter.goto(starting_x, starting_y)
+  painter.pensize(1)
 
-
-
-painter.setheading(90)
-painter.pendown()
+  painter.setheading(90)
+  painter.pendown()
 
 
 
 #ask user for inputs
 
 
-number_of_flowers = int(input("How many flowers would you like?"))
+number_of_flowers = int(input("How many flowers would you like? "))
 
 
+#sets starting variables
+starting_x = 0
 
+starting_y = 100
 
 #execution
 
+
+
 if number_of_flowers == 1:
+  painter_color_is_blue()
+  painter_set_up()
   draw_petals()
   yellow_hexagon()
   black_circle()
-elif number_of_flowers <= 0:
+elif number_of_flowers == 0:
   print("No flowers drawn.")
+  quit()
+elif number_of_flowers < 0:
+  print("Sorry, I can't print a fraction of a flower or a negative amount of flowers. Positive integers only!")
+  quit()
 elif number_of_flowers >= 1:
   for total_flowers in range(number_of_flowers):
+    painter_color_is_blue()
+    painter_set_up()
     draw_petals()
     yellow_hexagon()
     black_circle()
+    painter_color_is_blue()
+    starting_x = starting_x + 500
+    painter_set_up
+    
 
 
 
