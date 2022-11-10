@@ -95,7 +95,7 @@ def painter_set_up():
 #ask user for inputs
 
 
-number_of_flowers = int(input("How many flowers would you like? "))
+number_of_flowers = int(input("How many flowers would you like? Please provide a positive integer. "))
 
 
 #sets starting variables
@@ -117,7 +117,7 @@ elif number_of_flowers == 0:
   print("No flowers drawn.")
   quit()
 elif number_of_flowers < 0:
-  print("Sorry, I can't print a fraction of a flower or a negative amount of flowers. Positive integers only!")
+  print("Sorry, I can't print a negative amount of flowers. Positive integers only!")
   quit()
 elif number_of_flowers >= 1:
   for total_flowers in range(number_of_flowers):
