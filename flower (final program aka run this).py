@@ -12,7 +12,6 @@ def drawpetal():
   #traces petal
   painter.left(30)
   painter.forward(50)
-  print("about to set 90, ",painter.heading() )
   painter.rt(30)
 
   #makes curve
@@ -23,7 +22,6 @@ def drawpetal():
   painter.forward(50)
 
   #finishes petal
-  print("about to set 100, ",painter.heading() )
   painter.lt(120)
   painter.forward(50)
 
@@ -39,13 +37,13 @@ def draw_petals():
     painter.left(30)
 
 
-def yellow_hexagon():
+def inner_hexagon():
  
-  #switches to yellow
-  painter.pencolor("yellow")
-  painter.fillcolor("yellow")
+  #switches to color
+  painter.pencolor(innercolor)
+  painter.fillcolor(innercolor)
 
-  #prepares for inner yellow
+  #prepares for inner hexagon
   painter.setheading(0)
   painter.pensize(10)
 
@@ -56,17 +54,18 @@ def yellow_hexagon():
     painter.left(300)
   painter.end_fill()
 
-def black_circle():
+def inner_circle():
  
-  #prepares for black circle
+  print("Starting inner circle")
+  #prepares for  circle
 
-  painter.pencolor("black")
-  painter.fillcolor("black")
+  painter.pencolor(seedcolor)
+  painter.fillcolor(seedcolor)
   painter.penup()
-  painter.goto(50 + starting_x,-25)
+  painter.goto(50 + starting_x, -25)
 
 
-  #black circle
+  # circle
 
   painter.begin_fill()
   painter.circle(40) 
@@ -74,10 +73,10 @@ def black_circle():
   painter.hideturtle()
 
 
-#sets color blue
-def painter_color_is_blue():
-  painter.pencolor("blue")
-  painter.fillcolor("blue")
+#sets color 
+def setting_the_petal_color():
+  painter.pencolor(petalcolor)
+  painter.fillcolor(petalcolor)
 
 # sets up the painter
 
@@ -97,6 +96,11 @@ def painter_set_up():
 
 number_of_flowers = int(input("How many flowers would you like? Please provide a positive integer. "))
 
+petalcolor = input("What color petal would you like? ")
+
+innercolor = input("What color would you like the inside of the flower to be? ")
+
+seedcolor = input("What color would you like the seed to be? ")
 
 #sets starting variables
 starting_x = 0
@@ -108,11 +112,11 @@ starting_y = 100
 
 
 if number_of_flowers == 1:
-  painter_color_is_blue()
+  setting_the_petal_color()
   painter_set_up()
   draw_petals()
-  yellow_hexagon()
-  black_circle()
+  inner_hexagon()
+  inner_circle()
 elif number_of_flowers == 0:
   print("No flowers drawn.")
   quit()
@@ -121,12 +125,12 @@ elif number_of_flowers < 0:
   quit()
 elif number_of_flowers >= 1:
   for total_flowers in range(number_of_flowers):
-    painter_color_is_blue()
+    setting_the_petal_color()
     painter_set_up()
     draw_petals()
-    yellow_hexagon()
-    black_circle()
-    painter_color_is_blue()
+    inner_hexagon()
+    inner_circle()
+    setting_the_petal_color()
     starting_x = starting_x + 500
     painter_set_up
     
