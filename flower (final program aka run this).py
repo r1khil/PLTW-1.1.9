@@ -93,6 +93,7 @@ def painter_set_up():
 
 #ask user for inputs
 
+backgroundcolor = input("What color would you like the background be? ")
 
 number_of_flowers = int(input("How many flowers would you like? Please provide a positive integer. "))
 
@@ -102,14 +103,17 @@ innercolor = input("What color would you like the inside of the flower to be? ")
 
 seedcolor = input("What color would you like the seed to be? ")
 
+
 #sets starting variables
 starting_x = 0
 
 starting_y = 100
 
+wn = turtle.Screen()
+
 #execution
 
-
+wn.bgcolor(backgroundcolor)
 
 if number_of_flowers == 1:
   setting_the_petal_color()
@@ -138,5 +142,4 @@ elif number_of_flowers >= 1:
 
 
 
-wn = turtle.Screen()
 wn.mainloop()
